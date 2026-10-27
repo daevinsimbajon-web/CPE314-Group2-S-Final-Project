@@ -1,5 +1,4 @@
 # CPE314-Group2-S-Final-Project
-
 ## **Project Information**
 
 **Project Title**: Trivia & Quiz Game Night Manager
