@@ -1,4 +1,3 @@
-
 package com.triviagame.db;
 
 import java.sql.SQLException;
@@ -132,58 +131,114 @@ public final class SampleQuestionSeeder {
                 ))
             );
 
-    public static int seed() throws SQLException {
-
-        Database.initializeSchema();
-
-        CategoryDao categoryDao = new CategoryDao();
-        QuestionDao questionDao = new QuestionDao();
-
-        int insertedCount = 0;
-
-        for (SeedCategory seedCategory : SEED_DATA) {
-
-            int categoryId = getOrCreateCategory(
-                    categoryDao,
-                    seedCategory.name()
-            );
-
-            // Check existing questions to avoid duplicates.
-            Set<String> existingQuestions =
-                    new HashSet<>();
-
-            for (QuestionDao.QuestionRecord question :
-                    questionDao.getQuestionsByCategory(categoryId)) {
-
-                existingQuestions.add(
-                        normalize(question.text())
-                );
-            }
-
-            for (SampleQuestion question :
-                    seedCategory.questions()) {
-
-                String key = normalize(question.text());
-
-                if (existingQuestions.contains(key)) {
-                    continue;
-                }
-
-                questionDao.addQuestion(
-                        question.text(),
-                        question.correctAnswer(),
-                        question.incorrectAnswers(),
-                        question.difficulty(),
-                        categoryId
-                );
-
-                existingQuestions.add(key);
-                insertedCount++;
-            }
-        }
-
-        return insertedCount;
-    }
+	    public static int seed() throws SQLException {
+	
+	        Database.initializeSchema();
+	
+	        CategoryDao categoryDao = new CategoryDao();
+	        QuestionDao questionDao = new QuestionDao();
+	
+	        int insertedCount = 0;
+	
+	        // INSERT MULTIPLE-CHOICE QUESTIONS
+	        for (SeedCategory seedCategory : SEED_DATA) {
+	
+	            int categoryId = getOrCreateCategory(
+	                    categoryDao,
+	                    seedCategory.name()
+	            );
+	
+	            // Prevent duplicate questions
+	            Set<String> existingQuestions = new HashSet<>();
+	
+	            for (QuestionDao.QuestionRecord question :
+	                    questionDao.getQuestionsByCategory(categoryId)) {
+	
+	                existingQuestions.add(
+	                        normalize(question.text())
+	                );
+	            }
+	
+	            for (SampleQuestion question :
+	                    seedCategory.questions()) {
+	
+	                String key = normalize(question.text());
+	
+	                if (existingQuestions.contains(key)) {
+	                    continue;
+	                }
+	
+	                questionDao.addQuestion(
+	                        question.text(),
+	                        question.correctAnswer(),
+	                        question.incorrectAnswers(),
+	                        question.difficulty(),
+	                        categoryId,
+	                        "MULTIPLE_CHOICE"
+	                );
+	
+	                existingQuestions.add(key);
+	                insertedCount++;
+	            }
+	        }
+	
+	        // INSERT TRUE/FALSE QUESTIONS
+	
+	        // Science category
+	        int scienceId = getOrCreateCategory(
+	                categoryDao, "Science"
+	        );
+	
+	        String tfText1 = "The Sun is a star.";
+	
+	        boolean exists1 = questionDao
+	                .getQuestionsByCategory(scienceId)
+	                .stream()
+	                .anyMatch(q -> q.text().equalsIgnoreCase(tfText1));
+	
+	        if (!exists1) {
+	
+	            questionDao.addQuestion(
+	                    tfText1,
+	                    "True",
+	                    "[\"False\"]",
+	                    "easy",
+	                    scienceId,
+	                    "TRUE_FALSE"
+	            );
+	
+	            insertedCount++;
+	        }
+	
+	        // History category
+	        int historyId = getOrCreateCategory(
+	                categoryDao, "History"
+	        );
+	
+	        String tfText2 = "World War II ended in 1945.";
+	
+	        boolean exists2 = questionDao
+	                .getQuestionsByCategory(historyId)
+	                .stream()
+	                .anyMatch(q -> q.text().equalsIgnoreCase(tfText2));
+	
+	        if (!exists2) {
+	
+	            questionDao.addQuestion(
+	                    tfText2,
+	                    "True",
+	                    "[\"False\"]",
+	                    "easy",
+	                    historyId,
+	                    "TRUE_FALSE"
+	            );
+	
+	            insertedCount++;
+	        }
+	
+	        // Return AFTER inserting all questions
+	        return insertedCount;
+	    }
 
     private static int getOrCreateCategory(
             CategoryDao categoryDao,

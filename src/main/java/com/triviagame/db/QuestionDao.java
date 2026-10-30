@@ -1,4 +1,3 @@
-
 package com.triviagame.db;
 
 import java.sql.Connection;
@@ -13,12 +12,13 @@ public class QuestionDao {
 
     // Database representation of a trivia question
     public record QuestionRecord(
-            int id,
+    		int id,
             String text,
             String correctAnswer,
             String incorrectAnswers,
             String difficulty,
-            int categoryId
+            int categoryId,
+            String questionType
     ) {
     }
 
@@ -31,13 +31,40 @@ public class QuestionDao {
             int categoryId
     ) throws SQLException {
 
-        validateQuestion(
-                text,
-                correctAnswer,
-                incorrectAnswers,
-                difficulty,
-                categoryId
+        return addQuestion(
+            text,
+            correctAnswer,
+            incorrectAnswers,
+            difficulty,
+            categoryId,
+            "MULTIPLE_CHOICE"
         );
+    }
+    
+    public int addQuestion(
+            String text,
+            String correctAnswer,
+            String incorrectAnswers,
+            String difficulty,
+            int categoryId,
+            String questionType
+    ) throws SQLException {
+
+        validateQuestion(
+            text,
+            correctAnswer,
+            incorrectAnswers,
+            difficulty,
+            categoryId
+        );
+
+        if (!"MULTIPLE_CHOICE".equals(questionType)
+                && !"TRUE_FALSE".equals(questionType)) {
+
+            throw new IllegalArgumentException(
+                "Invalid question type"
+            );
+        }
 
         String sql = """
             INSERT INTO questions (
@@ -45,9 +72,10 @@ public class QuestionDao {
                 correct_answer,
                 incorrect_answers,
                 difficulty,
-                category_id
+                category_id,
+                question_type
             )
-            VALUES (?, ?, ?, ?, ?)
+            VALUES (?, ?, ?, ?, ?, ?)
             """;
 
         try (Connection connection =
@@ -60,18 +88,18 @@ public class QuestionDao {
             statement.setString(3, incorrectAnswers.trim());
             statement.setString(4, difficulty.trim());
             statement.setInt(5, categoryId);
+            statement.setString(6, questionType);
 
             int rows = statement.executeUpdate();
 
             if (rows != 1) {
                 throw new SQLException(
-                        "Failed to insert question"
+                    "Failed to insert question"
                 );
             }
 
-            // Retrieve generated question ID
             String idSql =
-                    "SELECT last_insert_rowid() AS id";
+                "SELECT last_insert_rowid() AS id";
 
             try (PreparedStatement idStatement =
                          connection.prepareStatement(idSql);
@@ -83,7 +111,7 @@ public class QuestionDao {
                 }
 
                 throw new SQLException(
-                        "Question ID could not be retrieved"
+                    "Question ID could not be retrieved"
                 );
             }
         }
@@ -258,17 +286,17 @@ public class QuestionDao {
     }
 
     // Convert ResultSet into QuestionRecord
-    private QuestionRecord mapQuestion(
-            ResultSet result
-    ) throws SQLException {
+    private QuestionRecord mapQuestion(ResultSet result)
+            throws SQLException {
 
         return new QuestionRecord(
-                result.getInt("id"),
-                result.getString("text"),
-                result.getString("correct_answer"),
-                result.getString("incorrect_answers"),
-                result.getString("difficulty"),
-                result.getInt("category_id")
+            result.getInt("id"),
+            result.getString("text"),
+            result.getString("correct_answer"),
+            result.getString("incorrect_answers"),
+            result.getString("difficulty"),
+            result.getInt("category_id"),
+            result.getString("question_type")
         );
     }
 
