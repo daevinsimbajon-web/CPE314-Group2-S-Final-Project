@@ -1,5 +1,4 @@
-
-package com.trivia;
+package com.triviagame;
 
 import com.trivia.db.QuestionDao.QuestionRecord;
 
