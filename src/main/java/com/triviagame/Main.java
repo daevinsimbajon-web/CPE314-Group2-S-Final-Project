@@ -1,4 +1,5 @@
 package com.triviagame;
+import com.triviagame.gameplay.GameEngine;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
