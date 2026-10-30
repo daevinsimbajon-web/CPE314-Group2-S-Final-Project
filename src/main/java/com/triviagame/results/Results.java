@@ -1,6 +1,7 @@
 package com.triviagame.results;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
@@ -64,7 +65,7 @@ public class Results {
 
         record PlayerScore(
                 String name,
-                int points
+                long points
         ) {}
 
         List<PlayerScore> leaderboard =
@@ -72,7 +73,7 @@ public class Results {
 
         for (PlayerDao.PlayerRecord player : players) {
 
-            int points = scoreDao.getTotalPointsByPlayer(
+            long points = scoreDao.getTotalPointsByPlayer(
                     player.id()
             );
 
@@ -113,7 +114,9 @@ public class Results {
             playerId = Integer.parseInt(
                 scanner.nextLine().trim()
             );
+            
         } catch (NumberFormatException e) {
+            
             System.out.println("Invalid player ID.");
             return;
         }
@@ -125,7 +128,7 @@ public class Results {
             return;
         }
 
-        var scores = scoreDao.getScoresByPlayer(playerId);
+        List<ScoreDao.ScoreRecord> scores = scoreDao.getScoresByPlayer(playerId);
 
         System.out.println(
             "\nResults for: " + player.get().name()
@@ -159,9 +162,11 @@ public class Results {
 
         System.out.println("------------------");
 
+        long totalPoints =
+                scoreDao.getTotalPointsByPlayer(playerId);
+
         System.out.println(
-            "Total Points: "
-            + scoreDao.getTotalPointsByPlayer(playerId)
+            "Total Points: " + totalPoints
         );
     }
 }
