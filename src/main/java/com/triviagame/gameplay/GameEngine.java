@@ -5,7 +5,7 @@ import com.triviagame.Question;
 import java.sql.SQLException;
 import java.util.*;
 
-import com.trivia.db.ScoreDao;
+import com.triviagame.db.ScoreDao;
 
 public class GameEngine {
 
