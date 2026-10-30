@@ -1,4 +1,4 @@
-package com.triviagame;
+package com.triviagame.gameplay;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
