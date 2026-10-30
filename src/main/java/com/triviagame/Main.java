@@ -15,23 +15,16 @@ import com.trivia.db.SampleQuestionSeeder;
 public class Main {
 
     public static void main(String[] args) {
+    Home.main(args);
+}
 
-        try {
-            startGame();
-        } catch (SQLException e) {
-            System.err.println("Database error:");
-            e.printStackTrace();
-        }
-    }
-
-    private static void startGame() throws SQLException {
+    public static void startGame(Scanner scanner)
+        throws SQLException {
 
         Database.initializeSchema();
 
         // Insert sample questions if they do not exist.
         SampleQuestionSeeder.seed();
-
-        Scanner scanner = new Scanner(System.in);
 
         PlayerDao playerDao = new PlayerDao();
         CategoryDao categoryDao = new CategoryDao();
