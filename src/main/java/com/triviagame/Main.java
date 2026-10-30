@@ -5,12 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import com.trivia.db.Database;
-import com.trivia.db.CategoryDao;
-import com.trivia.db.PlayerDao;
-import com.trivia.db.QuestionDao;
-import com.trivia.db.ScoreDao;
-import com.trivia.db.SampleQuestionSeeder;
+import com.triviagame.db.CategoryDao;
+import com.triviagame.db.Database;
+import com.triviagame.db.PlayerDao;
+import com.triviagame.db.QuestionDao;
+import com.triviagame.db.SampleQuestionSeeder;
+import com.triviagame.db.ScoreDao;
 
 public class Main {
 
