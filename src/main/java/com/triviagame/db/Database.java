@@ -1,4 +1,3 @@
-
 package com.triviagame.db;
 
 import java.io.IOException;
@@ -86,11 +85,29 @@ public final class Database {
                     correct_answer TEXT NOT NULL,
                     incorrect_answers TEXT NOT NULL,
                     difficulty TEXT NOT NULL,
+                    question_type TEXT NOT NULL DEFAULT 
+            		    'MULTIPLE_CHOICE',
                     category_id INTEGER NOT NULL,
                     FOREIGN KEY (category_id)
                         REFERENCES categories(id)
                 )
                 """);
+            
+        boolean hasQuestionType = false;
+
+        try (var columns = connection.getMetaData()
+                    .getColumns(null, null, "questions", "question_type")) {
+
+        	hasQuestionType = columns.next();
+        }
+
+        if (!hasQuestionType) {
+        	statement.executeUpdate("""
+                    ALTER TABLE questions
+                    ADD COLUMN question_type TEXT NOT NULL
+                    DEFAULT 'MULTIPLE_CHOICE'
+                    """);
+        }
 
             // SCORE TABLE
             statement.executeUpdate("""
