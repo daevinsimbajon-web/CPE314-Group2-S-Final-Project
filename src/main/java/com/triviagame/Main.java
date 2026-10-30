@@ -83,7 +83,7 @@ public class Main {
 
         // Recursive retrieval from SQLite
         var records =
-            categoryDao.getQuestionsRecursively(categoryId);
+            getQuestionsRecursively(categoryDao, questionDao, categoryId);
 
         if (records.isEmpty()) {
             System.out.println(
@@ -171,5 +171,18 @@ public class Main {
         );
 
         System.out.println("Session ID: " + sessionId);
+    }
+
+    // Recursive lookup: this category's questions plus those of every subcategory.
+    private static List<QuestionDao.QuestionRecord> getQuestionsRecursively(
+            CategoryDao categoryDao, QuestionDao questionDao, int categoryId) throws SQLException {
+
+        List<QuestionDao.QuestionRecord> all =
+                new ArrayList<>(questionDao.getQuestionsByCategory(categoryId));
+
+        for (CategoryDao.CategoryRecord sub : categoryDao.getSubcategories(categoryId)) {
+            all.addAll(getQuestionsRecursively(categoryDao, questionDao, sub.id()));
+        }
+        return all;   // base case: no subcategories, so the loop does not run
     }
 }
