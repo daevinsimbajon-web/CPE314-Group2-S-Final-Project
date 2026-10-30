@@ -1,4 +1,4 @@
-package com.trivia;
+package com.triviagame;
 
 public class MultipleChoiceQuestion extends Question {
 
