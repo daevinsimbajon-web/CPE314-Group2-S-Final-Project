@@ -29,7 +29,6 @@ public class GameEngineTest {
         assertTrue(game.submitAnswer("4"));
         assertEquals(10, game.getScore());
     }
-
     @Test
     void testTrueFalseScoring() throws SQLException {
 
