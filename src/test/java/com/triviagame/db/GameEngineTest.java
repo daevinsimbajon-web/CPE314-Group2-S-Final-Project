@@ -26,7 +26,7 @@ public class GameEngineTest {
         GameEngine game = new GameEngine();
         game.loadQuestions(List.of(question));
 
-        assertTrue(game.submitAnswer("4"));
+        assertTrue(game.submitAnswer("four"));
         assertEquals(10, game.getScore());
     }
     @Test
