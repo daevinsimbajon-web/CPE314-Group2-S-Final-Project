@@ -1,6 +1,6 @@
-package com.triviagame;
+package com.triviagame.questions;
 
-import com.trivia.db.QuestionDao.QuestionRecord;
+import com.triviagame.db.QuestionDao.QuestionRecord;
 
 public class QuestionMapper {
 

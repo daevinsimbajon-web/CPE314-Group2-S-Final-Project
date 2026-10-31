@@ -4,7 +4,8 @@ package com.triviagame.gameplay;
 import java.sql.SQLException;
 import java.util.*;
 
-import com.trivia.db.ScoreDao;
+import com.triviagame.questions.Question;
+import com.triviagame.db.ScoreDao;
 
 public class GameEngine {
 

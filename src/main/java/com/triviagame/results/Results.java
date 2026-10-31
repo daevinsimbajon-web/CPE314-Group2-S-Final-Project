@@ -6,8 +6,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
-import com.trivia.db.PlayerDao;
-import com.trivia.db.ScoreDao;
+import com.triviagame.db.PlayerDao;
+import com.triviagame.db.ScoreDao;
 
 public class Results {
 
@@ -83,7 +83,7 @@ public class Results {
         }
 
         leaderboard.sort(
-            Comparator.comparingInt(
+            Comparator.comparingLong(
                 PlayerScore::points
             ).reversed()
         );

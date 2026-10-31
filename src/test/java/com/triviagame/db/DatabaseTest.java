@@ -1,4 +1,3 @@
-
 package com.triviagame.db;
 
 import org.junit.jupiter.api.BeforeAll;

@@ -1,4 +1,4 @@
-package com.triviagame;
+package com.triviagame.questions;
 
 public class TrueFalseQuestion extends Question {
 

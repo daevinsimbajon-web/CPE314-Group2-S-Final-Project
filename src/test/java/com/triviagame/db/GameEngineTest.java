@@ -1,4 +1,9 @@
-package com.trivia;
+package com.triviagame.gameplay;
+
+import com.triviagame.category.Category;
+import com.triviagame.questions.MultipleChoiceQuestion;
+import com.triviagame.questions.Question;
+import com.triviagame.questions.TrueFalseQuestion;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,8 +19,8 @@ public class GameEngineTest {
 
         Question question = new MultipleChoiceQuestion(
             "What is 2 + 2?",
-            new String[]{"3", "4", "5"},
-            "4"
+            new String[]{"three", "four", "five"},
+            "four"
         );
 
         GameEngine game = new GameEngine();

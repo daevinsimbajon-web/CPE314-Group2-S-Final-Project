@@ -12,6 +12,11 @@ import com.triviagame.db.QuestionDao;
 import com.triviagame.db.SampleQuestionSeeder;
 import com.triviagame.db.ScoreDao;
 
+import com.triviagame.gameplay.GameEngine;
+import com.triviagame.home.Home;
+import com.triviagame.questions.Question;
+import com.triviagame.questions.QuestionMapper;
+
 public class Main {
 
     public static void main(String[] args) {

@@ -4,7 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
-import com.trivia.db.PlayerDao;
+import com.triviagame.db.PlayerDao;
 
 public class Players {
 

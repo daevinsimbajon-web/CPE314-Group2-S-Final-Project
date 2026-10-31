@@ -1,4 +1,4 @@
-package com.triviagame;
+package com.triviagame.questions;
 
 public abstract class Question {
 

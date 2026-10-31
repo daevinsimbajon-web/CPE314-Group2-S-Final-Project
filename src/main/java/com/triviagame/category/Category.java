@@ -1,5 +1,6 @@
 package com.triviagame.category;
 
+import com.triviagame.questions.Question;
 import java.util.ArrayList;
 import java.util.List;
 

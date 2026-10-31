@@ -3,7 +3,11 @@ package com.triviagame.home;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-import com.trivia.db.Database;
+import com.triviagame.db.Database;
+
+import com.triviagame.Main;
+import com.triviagame.players.Players;
+import com.triviagame.results.Results;
 
 public class Home {
 
