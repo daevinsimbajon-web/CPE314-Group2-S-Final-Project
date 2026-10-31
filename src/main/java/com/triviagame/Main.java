@@ -20,7 +20,7 @@ import com.triviagame.questions.QuestionMapper;
 public class Main {
 
     public static void main(String[] args) {
-    Home.main(args);
+    App.main(args);
 }
 
     public static void startGame(Scanner scanner)
