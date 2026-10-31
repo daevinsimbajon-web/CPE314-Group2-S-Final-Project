@@ -83,10 +83,10 @@
 | Member | Primary Role |
 | :--- | :--- |
 | **John Daevin S. Simbajon** | Team Lead + Integrator/DevOps |
-| **Gebrielle P. Mirasol** | Core OOP/Logic Developer |
+| **Clarence Philip A. Elegino** | Core OOP/Logic Developer |
 | **Justine B. Cuizon** | Database Admin + Data Developer + API |
-| **Clarence Philip A. Elegino** | UI/UX Designer + JavaFX Developer |
-| **Joshua Malaya** | Analytics + QA |
+|  **Joshua Malaya** | UI/UX Designer + JavaFX Developer |
+| **Gebrielle P. Mirasol**| Analytics + QA |
 
 ---
 
