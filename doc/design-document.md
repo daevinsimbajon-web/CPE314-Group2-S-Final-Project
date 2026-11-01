@@ -17,11 +17,9 @@ _Project Design Document_
 ||Gebrielle P. Mirasol - (Analytics + QA)|
 |**Instructor:**|Richyll Son|
 |**Term:**|First Semester,S.Y. 2026-2027|
-|**Document Version / Date:**|_V0.2 - 10/28/26_|
+|**Document Version / Date:**|_V0.1 - 10/26/26_|
 
 
-
-CPE 314 | Software Design   ·   University of Cebu   ·   Richyll Son   ·   Page 1 
 
 ## **Table of Contents** 
 
@@ -43,7 +41,6 @@ CPE 314 | Software Design   ·   University of Cebu   ·   Richyll Son   ·   Pa
 
 
 
-CPE 314 | Software Design   ·   University of Cebu   ·   Richyll Son   ·   Page 2 
 
 ## **Revision History** 
 
@@ -66,7 +63,6 @@ Problem solved: Quiz hosts usually keep score on paper or in scattered spreadshe
 
 Key value proposition: One app that fetches questions, scores each player, stores the history, and turns it into clear charts, so groups can see who is improving and which categories are hardest. 
 
-CPE 314 | Software Design   ·   University of Cebu   ·   Richyll Son   ·   Page 3 
 
 ## **2. Preliminary ER Sketch & Team Roles** 
 
@@ -87,43 +83,4 @@ CATEGORY<br>nt “ PK<br>stig name uk<br>nt parents FK<br>QUESTION<br>re “ PK<
 |_Clarence Philip A. Elegino_|UI/UX Designer + JavaFX Developer|
 |_Joshua Malaya_|Analytics + QA|
 
-
-
-CPE 314 | Software Design   ·   University of Cebu   ·   Richyll Son   ·   Page 4 
-
-## **3. System Architecture & Object-Oriented Design** 
-
-_Present your class hierarchy (a diagram or a clear textual description) showing the abstract class/interface and its concrete subclasses, and justify how each class follows the Single Responsibility Principle. Explain the design rationale in a short paragraph._ 
-
-## **4. Data Model & Database Design** 
-
-_Include the finalized ER diagram (3+ entities, at least one relationship with correct cardinality) and the actual SQLite schema (CREATE TABLE statements or an equivalent schema table). This section supersedes the preliminary sketch from Section 2._ 
-
-## **5. API Integration Design** 
-
-_Name the public API your app consumes, describe the endpoint(s) called, the shape of the JSON response, and how that data is parsed and used meaningfully in the app._ 
-
-## **6. Concurrency Design** 
-
-_Identify the long-running operation(s) that run on a background thread, explain the threading approach used, and describe how the UI stays responsive during that operation._ 
-
-## **7. Data Mining & Visualization Design** 
-
-_Describe the aggregation or frequency-analysis step performed on your app's data and the chart(s) used to visualize the result, including why that chart type was chosen._ 
-
-CPE 314 | Software Design   ·   University of Cebu   ·   Richyll Son   ·   Page 5 
-
-## **8. Testing Summary** 
-
-_Summarize your JUnit test suite — how many tests exist, what they cover, and at least one meaningful edge case per tested class. A short table or list of key test cases is helpful here._ 
-
-## **9. Individual Contributions** 
-
-_List what each team member specifically built or owned, referencing their git commit history, so the instructor can cross-check contribution during the Individual Q&A._ 
-
-## **Appendix** 
-
-_(Add any additional references, links to full API documentation, licensing notes, or supplementary material here.)_ 
-
-CPE 314 | Software Design   ·   University of Cebu   ·   Richyll Son   ·   Page 6 
 
