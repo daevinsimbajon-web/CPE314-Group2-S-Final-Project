@@ -11,7 +11,7 @@
 | **Members:** | **John Daevin S. Simbajon** - (Team Lead + Integrator/DevOps)<br>**Clarence Philip A. Elegino** - (Core OOP/Logic Developer)<br>**Justine B. Cuizon** - (Database Admin + Data Developer + API)<br>**Joshua Neil G. Malaya** - (UI/UX Designer + JavaFX Developer)<br>**Gebrielle P. Mirasol** - (Analytics + QA) |
 | **Instructor:** | Richyll Son |
 | **Term:** | First Semester, S.Y. 2026-2027 |
-| **Document Version / Date:** | V0.2 - 10/28/26 |
+| **Document Version / Date:** | V0.2 - 10/31/26 |
 
 ---
 
@@ -25,12 +25,11 @@
 ---
 
 ## Revision History
-*Update this table each week as your team adds or revises sections of this document.*
 
 | Version | Date | Authors | Changes |
 | :--- | :--- | :--- | :--- |
-| **0.1** | 10/24/26 - 10/26/26 | Justine B. Cuizon, Clarence A. Elegino, Joshua G. Malaya, Gebrielle P. Mirasol, John S. Simbajon | Initial draft — Week 8 sections (Section 1 to 2). Removing Unnecessary Instruction. Generating the Table of Contents. |
-| **0.2** | 10/28/26 | Group 2 | Week 9 sections added. |
+| **0.1** | 10/24/26 - 10/26/26 | John Daevin S. Simbajon | Initial draft — Week 8 sections (Section 1 to 2). Removing Unnecessary Instruction. Generating the Table of Contents. |
+| **0.2** | 10/31/26 | John Daevin S. Simbajon | Week 9 sections added. |
 | **0.3** | *Pending* | Group 2 | Week 10 sections added. |
 | **1.0** | *Pending* | Group 2 | Final compilation and polish — Week 11. |
 
